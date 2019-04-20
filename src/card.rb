@@ -4,8 +4,6 @@ include Util
 class Card
   attr_reader :balance
 
-  # TODO2 Move out of here
-  MAX_FARE = 3.20
   INSUFFICIENT_FUNDS_ERROR = 'INSUFFICIENT FUNDS ERROR'
 
   def initialize(amount)
@@ -14,7 +12,16 @@ class Card
 
   # TODO2 should have deduct method only
   def debit(amount)
+    if @balance >= amount
+      @balance -= amount
 
+    else
+      raise INSUFFICIENT_FUNDS_ERROR
+    end
+  end
+
+  def set_boarding_station(station)
+    @boarding_station = station
   end
 
   # TODO2 here
@@ -23,12 +30,7 @@ class Card
   end
 
   def make_max_transaction(station)
-    if @balance >= MAX_FARE
-      @balance -= MAX_FARE
-      @boarding_station = station
-    else
-      raise INSUFFICIENT_FUNDS_ERROR
-    end
+
   end
 
   def rollback_max_transaction

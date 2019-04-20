@@ -9,10 +9,6 @@ class User
     @card = Card.new(amount)
   end
 
-  def swipe_card(card)
-    puts "Swiping Card" + card.to_s
-  end
-
   def enter_station(station)
     puts "#{@name} entered #{station.name} station"
     station.entry_swipe(card)

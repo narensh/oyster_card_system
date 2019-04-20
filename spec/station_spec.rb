@@ -4,7 +4,7 @@ include StationType
 
 RSpec.describe Station do
   let(:max_fare) {10}
-  context 'when the user swipes at the entry' do
+  context :entry_swipe do
     let(:card) {double(Card, debit: true)}
     let(:boarding_station) {Station.new("A", BUS, nil)}
 
@@ -26,7 +26,7 @@ RSpec.describe Station do
     end
   end
 
-  context 'when the user swipes at the exit' do
+  context :exit_swipe do
     let(:actual_fare) {7}
     let(:boarding_station) {Station.new("A", TUBE, [ONE])}
     let(:deboarding_station) {Station.new("B", TUBE, [TWO])}

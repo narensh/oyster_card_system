@@ -35,7 +35,8 @@ module Util
     def self.zones_covered(boarding_station, deboarding_station)
       common_zones = boarding_station.zones & deboarding_station.zones
       return common_zones if common_zones.size > 0
-      return boarding_station.zones + deboarding_station.zones
+
+      boarding_station.zones + deboarding_station.zones
     end
   end
 end

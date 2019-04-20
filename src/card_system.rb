@@ -1,4 +1,4 @@
-Dir[File.join(__dir__, "**/*.rb")].each {|file| require File.expand_path(file) unless file.include?("card_system.rb") }
+Dir[File.join(__dir__, "**/*.rb")].each {|file| require File.expand_path(file) unless file.include?("card_system.rb")}
 
 include StationType
 include Zone
@@ -10,9 +10,9 @@ EARL_COURT_TUBE_STATION = Station.new("Earl’s Court", TUBE, [ONE, TWO])
 WIMBLEDON_TUBE_STATION = Station.new("Wimbledon", TUBE, [THREE])
 HAMMERSMITH_TUBE_STATION = Station.new("Hammersmith", TUBE, [TWO])
 
-HOLBORN_BUS_STATION = Station.new("Holborn", BUS, nil)
 EARL_COURT_BUS_STATION = Station.new("Earl’s Court", BUS, nil)
 WIMBLEDON_BUS_STATION = Station.new("Wimbledon", BUS, nil)
+HOLBORN_BUS_STATION = Station.new("Holborn", BUS, nil)
 HAMMERSMITH_BUS_STATION = Station.new("Hammersmith", BUS, nil)
 
 class CardSystem

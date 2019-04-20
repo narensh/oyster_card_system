@@ -8,10 +8,21 @@ class Station
   end
 
   def entry_swipe(card)
-    card.make_max_transaction(self)
+    card.debit(max_fare)
   end
 
   def exit_swipe(card)
-    card.make_actual_transaction(self)
+    card.credit(max_fare)
+    card.debit(actual_fare(card.boarding_station))
+  end
+
+  private
+
+  def max_fare
+    FareCalculator.max_fare(@type)
+  end
+
+  def actual_fare(boarding_station)
+    FareCalculator.compute(boarding_station, self)
   end
 end

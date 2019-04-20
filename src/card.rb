@@ -1,5 +1,3 @@
-require './util/fare_calculator'
-
 include Util
 
 # TODO2 a lot to fix in this class

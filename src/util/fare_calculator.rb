@@ -5,10 +5,16 @@ module Util
   class FareCalculator
 
     def self.compute(boarding_station, deboarding_station)
-      return FARES[:BUS] if (boarding_station.type == BUS)
+      return FARES[:BUS] if (boarding_station.type == StationType::BUS)
 
       zones_covered = zones_covered(boarding_station, deboarding_station)
       return FARES[boarding_station.type.to_sym][zones_covered.sort]
+    end
+
+    def self.max_fare(station_type)
+      return FARES[station_type.to_sym] if station_type == BUS
+
+      FARES[station_type.to_sym].values.max
     end
 
     private

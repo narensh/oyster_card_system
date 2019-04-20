@@ -1,5 +1,3 @@
-require './card'
-
 class User
   attr_reader :name, :card
 

@@ -1,7 +1,4 @@
-require '../src/station'
-require '../src/station_type'
-require '../src/user'
-require '../src/zone'
+Dir[File.join(__dir__, "**/*.rb")].each {|file| require File.expand_path(file) unless file.include?("card_system.rb") }
 
 include StationType
 include Zone

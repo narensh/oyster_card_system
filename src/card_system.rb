@@ -17,7 +17,7 @@ HAMMERSMITH_BUS_STATION = Station.new("Hammersmith", BUS, nil)
 
 class CardSystem
   def demo
-    user = User.new("Traveler1")
+    user = User.new("Mr Anderson")
     card = user.buy_card(RELOAD_AMOUNT)
 
     user.enter_station(HOLBORN_TUBE_STATION)

@@ -8,7 +8,7 @@ class Station
   end
 
   def entry_swipe(card)
-    card.set_boarding_station(self)
+    card.boarding_station = self
     card.debit(max_fare)
   end
 

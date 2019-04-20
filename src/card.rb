@@ -2,10 +2,11 @@ include Util
 
 class Card
   attr_reader :balance
+  attr_accessor :boarding_station
   INSUFFICIENT_FUNDS_ERROR = 'INSUFFICIENT_FUNDS_ERROR'
 
   def initialize(amount)
-    @balance = amount | 0
+    @balance = amount || 0
   end
 
   def debit(amount)
@@ -18,9 +19,5 @@ class Card
 
   def credit(amount)
     @balance += amount
-  end
-
-  def set_boarding_station(station)
-    @boarding_station = station
   end
 end

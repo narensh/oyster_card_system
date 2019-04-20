@@ -5,12 +5,13 @@ include StationType
 RSpec.describe Station do
   let(:max_fare) {10}
   context 'when the user swipes at the entry' do
-    let(:card) {double(Card, debit: true, set_boarding_station: true)}
+    let(:card) {double(Card, debit: true)}
     let(:boarding_station) {Station.new("A", BUS, nil)}
 
     it 'should debit max possible fare for the journey' do
       expect(FareCalculator).to receive(:max_fare).with(BUS).and_return(max_fare)
 
+      allow(card).to receive(:boarding_station=)
       expect(card).to receive(:debit).with(max_fare)
 
       boarding_station.entry_swipe(card)
@@ -19,7 +20,7 @@ RSpec.describe Station do
     it 'should set the boarding station' do
       expect(FareCalculator).to receive(:max_fare).with(BUS).and_return(max_fare)
 
-      expect(card).to receive(:set_boarding_station).with(boarding_station)
+      expect(card).to receive(:boarding_station=).with(boarding_station)
 
       boarding_station.entry_swipe(card)
     end

@@ -32,8 +32,12 @@ class CardSystem
     user.enter_station(EARL_COURT_TUBE_STATION)
     user.exit_station(WIMBLEDON_TUBE_STATION)
 
-    puts "card - balance " + card.balance.to_s
+    puts "#{user.name} has #{format_money(card.balance)} as balance"
   end
+end
+
+def format_money(money)
+  "£#{sprintf('%.2f' % money)}"
 end
 
 card_system = CardSystem.new

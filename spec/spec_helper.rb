@@ -1,0 +1,1 @@
+Dir[File.join(__dir__, "../src/**/*.rb")].each {|file| require File.expand_path(file) unless file.include?("card_system.rb") }
